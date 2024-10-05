@@ -4,6 +4,13 @@ USB CAN 232 485 SPI I2C 网络更新
 2.BMU是将bootloader程序存放到内部FLASH里，然后通过CAN通讯进行更新
 3.上电启动流程
 首先根据boot0和boot1引脚电平选择从哪个区域启动(选择将哪个存储区映射到0地址区)
+读取栈顶地址初始化MSP
+读取中断服务程序首地址，进入复位中断服务程序
+
+4.从app跳转回bootloader
+NVIC_SystemReset
+
+
 
 
 
