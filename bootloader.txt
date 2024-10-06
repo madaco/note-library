@@ -1,7 +1,9 @@
 1.bootloader有许多的实现方法
 NAND eMMC U盘 SD卡
 USB CAN 232 485 SPI I2C 网络更新
+
 2.BMU是将bootloader程序存放到内部FLASH里，然后通过CAN通讯进行更新
+
 3.上电启动流程
 首先根据boot0和boot1引脚电平选择从哪个区域启动(选择将哪个存储区映射到0地址区)
 读取栈顶地址初始化MSP
@@ -9,6 +11,11 @@ USB CAN 232 485 SPI I2C 网络更新
 
 4.从app跳转回bootloader
 NVIC_SystemReset
+
+5.boot跳转app方法
+关闭全局中断 关闭所有中断 清除中断挂起标志位
+关闭滴答定时器，复位到默认值
+设置MSP 跳转到APP层的复位中断服务程序
 
 
 
