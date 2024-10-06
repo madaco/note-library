@@ -2,7 +2,11 @@
 NAND eMMC U盘 SD卡
 USB CAN 232 485 SPI I2C 网络更新
 
-2.BMU是将bootloader程序存放到内部FLASH里，然后通过CAN通讯进行更新
+2.实际案例
+BMU是将bootloader程序存放到内部FLASH里，然后通过CAN通讯更新app层。
+BC是由bootloader层、备份层、app层。
+OV手表同样是将bootloader层和app层放到内部FLASH中，通过蓝牙更新app层，并且加入了一层FLAG区域，只有这一段区域数据正确时，
+才会从bootloader层跳转到app层。
 
 3.上电启动流程
 首先根据boot0和boot1引脚电平选择从哪个区域启动(选择将哪个存储区映射到0地址区)
